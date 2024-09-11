@@ -1,0 +1,56 @@
+/Tyler Carpenter
+/CGS3269
+
+/multiply 3 numbers a b c
+
+/a
+INPUT /input first num
+OUTPUT	
+STORE a
+
+/b
+INPUT /input second num
+OUTPUT
+STORE b
+
+/c
+INPUT /input third num
+OUTPUT
+STORE c
+
+/multiply (a*b)
+/add a to result b times
+mul_loop, LOAD result1 /start of loop
+ADD a
+STORE result1
+LOAD b
+SUBT one
+STORE b
+SKIPCOND 400
+JUMP mul_loop /end of loop
+
+/multiply (a*b) * c
+/add result to itself c times
+mul_loop2, LOAD result2 /start of loop
+ADD result1
+STORE result2
+LOAD c
+SUBT one
+STORE c
+SKIPCOND 400
+JUMP mul_loop2 /end of loop
+
+/final result
+LOAD result2
+OUTPUT
+HALT
+
+/variables
+a, dec 0
+b, dec 0
+c, dec 0
+result1, dec 0
+result2, dec 0
+one, dec 1
+
+END
